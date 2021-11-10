@@ -1,1 +1,5 @@
 # SubFinder
+
+```bash
+Subdomain finder
+```
