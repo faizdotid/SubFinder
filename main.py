@@ -1,12 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import requests
 from colorama import init as colorama_init
 import argparse
-import os, random
+import os
+import random
 from pack import GETSUB
 import textwrap
 
 if not os.path.isdir("result"):
     os.mkdir("result")
+
 
 def head():
     h = """Mozilla/4.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/11.0.1245.0 Safari/537.36
@@ -22,7 +26,9 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like 
     hh = random.choice(h)
     return hh
 
+
 colorama_init(autoreset=True)
+
 
 def print_status_code(url, scode):
     format = "\x1b[34m[ \x1b[33m* \x1b[34m] \x1b[37m{:<50} -->   \x1b[34m[ {} \x1b[34m]"
@@ -37,6 +43,8 @@ def save_file(file, url):
     with open("result/"+file, "a") as f:
         f.write(url+"\n")
         f.close()
+
+
 if __name__ == "__main__":
     ban = """\x1b[32m   _____       __    _______           __         
   / ___/__  __/ /_  / ____(_)___  ____/ /__  _____
@@ -50,7 +58,7 @@ if __name__ == "__main__":
         description=textwrap.dedent(ban),
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Thanks for using this tools")
-    
+
     parser.add_argument("-u", "--url",
                         type=str,
                         required=True,
